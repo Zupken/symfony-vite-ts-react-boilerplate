@@ -17,19 +17,14 @@
 		}
 	</style>
 
-	<div class="example-wrapper">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
-
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>/home/kuba/Projects/vite-symfony/src/Controller/WelcomeController.php</code>
-			</li>
-			<li>Your template at
-				<code>/home/kuba/Projects/vite-symfony/templates/welcome/index.html.twig</code>
-			</li>
-			fda
-		</ul>
-	</div>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Vite + React + TS</title>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
 {% endblock %}
