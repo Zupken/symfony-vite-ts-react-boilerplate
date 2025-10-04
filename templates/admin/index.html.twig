@@ -8,5 +8,5 @@
 		{{ vite_entry_link_tags('admin') }}
 	</head>
 	<div id="root"></div>
-	{{ vite_entry_script_tags('admin') }}
+	{{ vite_entry_script_tags('admin', { dependency: 'react' }) }}
 {% endblock %}

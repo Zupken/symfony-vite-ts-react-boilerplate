@@ -3,12 +3,13 @@
 This project integrates **Symfony** with **Vite**, **React**, and **TypeScript**. It provides a modern development experience with fast builds, hot module replacement (HMR), and efficient production builds.
 
 ## How It Works
-Files are served via `{{ vite_entry_script_tags('endpoint') }}`:
+Files are served via `{{ vite_entry_script_tags('entrypoint', { dependency: 'react' }) }}`: - entrypoints are specified in `vite.config.js`. in section `rollupOptions` --- this should be somehow improved as it currently needs to be added every time we add a new route.
+
+If entrypoint is not found then app throws an error.
+
 - **Development**: Points to the Vite dev server (e.g., `http://localhost:5173`). - it compile .tsx files 'on fly'.
 Hot Module Replacement (HMR) ensures instant updates in the browser when you change frontend files.
 - **Production**: Points to the hashed files in `public/build`. - it creates a map in `public/build/.vite/entrypoints.json` between files and files with hashes.
-
-Routes are specified in `vite.config.js`. in section `rollupOptions` --- this should be somehow improved as it currently needs to be added every time we add a new route.
 
 ### Key Functions
 - `vite_entry_link_tags` [(Docs)](https://symfony-vite.pentatrion.com/guide/twig-functions.html#vite-entry-script-tags-%F0%9F%93%9C): Dynamically includes CSS files for a specific entry point in production. Not needed in development, as Vite injects CSS directly into the page.
@@ -21,6 +22,7 @@ These functions rely on the `entrypoints.json` file, which is automatically gene
 
 ### Key files:
 - **vite.config.js** - Configures Vite to integrate React and Symfony, define entry points, serve assets in development with HMR, and output optimized, hashed files to `public/build` for production.
+- **config/packages/pentatrion_vite.yaml** [(Docs)](https://symfony-vite.pentatrion.com/reference/vite-bundle.html) - configuration of the bundle.
 
 ### Setup
 ```bash
@@ -34,8 +36,3 @@ production
 ```bash
 npm run build
 ```
-
-### Future Improvements
-
-1. **Automate Entry Point Detection**:
-   - Currently, entry points must be manually added to `vite.config.js`. Automating this process would reduce manual effort and potential errors.
