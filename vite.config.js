@@ -9,7 +9,7 @@ export default defineConfig({
         symfonyPlugin(),
     ],
     root: "assets",
-    base: "/",
+    base: "/build/", // The base path for prod builds
     build: {
         outDir: "../public/build",
         emptyOutDir: true,

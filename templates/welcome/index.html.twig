@@ -25,10 +25,7 @@
 	</head>
 	<body>
 		<div id="root"></div>
-		{% if app.environment == 'dev' %}
-			<script type="module" src="http://localhost:5173/src/welcome/main.tsx"></script>
-		{% else %}
-			<script type="module" src="/build/welcome.js"></script>
-		{% endif %}
+		{# works both in dev and prod #}
+		{{ vite_entry_script_tags('welcome') }}
 	</body>
 {% endblock %}
