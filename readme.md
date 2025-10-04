@@ -11,8 +11,8 @@ Hot Module Replacement (HMR) ensures instant updates in the browser when you cha
 Routes are specified in `vite.config.js`. in section `rollupOptions` --- this should be somehow improved as it currently needs to be added every time we add a new route.
 
 ### Key Functions
-- `vite_entry_link_tags` [(Docs)](https://symfony-vite.pentatrion.com/guide/twig-functions.html#vite-entry-script-tags-%F0%9F%93%9C): Dynamically includes CSS files for a specific entry point in production. Not needed in development, as Vite injects CSS directly into the page: 
-- `vite_entry_script_tags` [(Docs)](https://symfony-vite.pentatrion.com/guide/twig-functions.html#vite-entry-link-tags-%F0%9F%8E%A8): Dynamically includes JavaScript files for a specific entry point in both development and production: 
+- `vite_entry_link_tags` [(Docs)](https://symfony-vite.pentatrion.com/guide/twig-functions.html#vite-entry-script-tags-%F0%9F%93%9C): Dynamically includes CSS files for a specific entry point in production. Not needed in development, as Vite injects CSS directly into the page.
+- `vite_entry_script_tags` [(Docs)](https://symfony-vite.pentatrion.com/guide/twig-functions.html#vite-entry-link-tags-%F0%9F%8E%A8): Dynamically includes JavaScript files for a specific entry point in both development and production.
 
 These functions rely on the `entrypoints.json` file, which is automatically generated during the build process. This file maps entry points to their corresponding hashed assets in production.
 
