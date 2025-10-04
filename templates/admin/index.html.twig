@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+{% block body %}
+	<body>
+		<div id="root"></div>
+		{% if app.environment == 'dev' %}
+			<script type="module" src="http://localhost:5173/src/admin/main.tsx"></script>
+		{% else %}
+			<script type="module" src="/build/admin.js"></script>
+		{% endif %}
+	</body>
+{% endblock %}

@@ -14,7 +14,9 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: "./assets/src/main.tsx",
+                admin: "./src/admin.tsx",
+                dashboard: "./src/dashboard.tsx",
+                welcome: "./src/welcome/main.tsx",
             },
         },
     },
