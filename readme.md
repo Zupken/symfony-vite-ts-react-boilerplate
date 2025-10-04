@@ -3,7 +3,7 @@
 This project integrates **Symfony** with **Vite**, **React**, and **TypeScript**. It provides a modern development experience with fast builds, hot module replacement (HMR), and efficient production builds.
 
 ## How It Works
-Files are served via `{{ vite_entry_script_tags('entrypoint', { dependency: 'react' }) }}`: - entrypoints are specified in `vite.config.js`. in section `rollupOptions` --- this should be somehow improved as it currently needs to be added every time we add a new route.
+Files are served via `{{ vite_entry_script_tags('entrypoint', { dependency: 'react' }) }}`: - entrypoints are specified in `vite.config.js` in section `rollupOptions`.
 
 If entrypoint is not found then app throws an error.
 
