@@ -8,11 +8,18 @@ export default defineConfig({
         symfonyPlugin(),
     ],
     root: 'assets',
+    base: '/',
     build: {
+        outDir: '../public/build',
+        emptyOutDir: true,
         rollupOptions: {
             input: {
-                app: "./assets/app.js"
+                main: "./assets/src/main.tsx",
             },
-        }
+        },
+    },
+    server: {
+        origin: 'http://localhost:5173',
+        cors: true,
     },
 });

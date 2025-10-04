@@ -25,6 +25,10 @@
 	</head>
 	<body>
 		<div id="root"></div>
-		<script type="module" src="/src/main.tsx"></script>
+		{% if app.environment == 'dev' %}
+			<script type="module" src="http://localhost:5173/src/main.tsx"></script>
+		{% else %}
+			<script type="module" src="/build/main.js"></script>
+		{% endif %}
 	</body>
 {% endblock %}
