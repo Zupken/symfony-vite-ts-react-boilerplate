@@ -14,15 +14,33 @@ const Menu: React.FC = () => {
   };
 
   return (
-    <nav>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <nav
+      style={{
+        backgroundColor: '#f8f9fa',
+        padding: '10px 20px',
+        position: 'fixed', // Fixes the menu at the top
+        top: 0,
+        left: 0,
+        width: '100%', // Makes the menu span the full width
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', // Adds a subtle shadow
+        zIndex: 1000, // Ensures the menu stays above other content
+      }}
+    >
+      <ul
+        style={{
+          listStyle: 'none',
+          display: 'flex',
+          justifyContent: 'center',
+          margin: 0,
+          padding: 0,
+        }}
+      >
         {menuItems.map((item) => (
           <li
             key={item.id}
             style={{
-              padding: '10px 20px',
+              margin: '0 15px',
               cursor: 'pointer',
-              backgroundColor: activeItem === item.id ? '#ddd' : 'transparent',
             }}
             onClick={() => handleItemClick(item.id)}
           >
@@ -30,7 +48,8 @@ const Menu: React.FC = () => {
               href={item.link}
               style={{
                 textDecoration: 'none',
-                color: activeItem === item.id ? '#000' : '#555',
+                color: activeItem === item.id ? '#007bff' : '#555',
+                fontWeight: activeItem === item.id ? 'bold' : 'normal',
               }}
             >
               {item.label}

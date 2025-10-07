@@ -18,6 +18,7 @@ export default defineConfig({
                 admin: path.resolve(__dirname, "assets/src/admin/main.tsx"),
                 welcome: path.resolve(__dirname, "assets/src/welcome/main.tsx"),
                 menu: path.resolve(__dirname, "assets/src/menu/main.tsx"),
+                assets_poc: path.resolve(__dirname, "assets/src/assetsPoc/main.tsx"),
             },
         },
     },

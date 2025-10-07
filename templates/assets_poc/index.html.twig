@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+{% block body %}
+	<head>
+		{{ vite_entry_link_tags('assets_poc') }}
+	</head>
+
+	<div id="menu-root"></div>
+	{{ vite_entry_script_tags('menu', { dependency: 'react' }) }}
+	<span>
+		TS asset loaded in Twig:
+		<img src="{{ asset('src/assets/react.svg') }}">
+	</span>
+
+	{# run npm run build and see that it uses filename with hash #}
+	{# this works due to mapping in public/build/.vite/manifest.json that is generated on npm run build #}
+	<div id="root"></div>
+	{{ vite_entry_script_tags('assets_poc', { dependency: 'react' }) }}
+{% endblock %}

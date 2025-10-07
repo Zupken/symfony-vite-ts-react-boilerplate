@@ -23,6 +23,25 @@ These functions rely on the `entrypoints.json` file, which is automatically gene
 ### Key files:
 - **vite.config.js** - Configures Vite to integrate React and Symfony, define entry points, serve assets in development with HMR, and output optimized, hashed files to `public/build` for production.
 - **config/packages/pentatrion_vite.yaml** [(Docs)](https://symfony-vite.pentatrion.com/reference/vite-bundle.html) - configuration of the bundle.
+- **config/packages/framework.yaml** - needs assets:version_strategy, see Q&A section on Assets
+
+## Q&A
+### Assets
+Endpoint for examples of using assets: `assets-poc`
+
+Q: How do I load TS assets in twig file?
+A: use  <img src="{{ asset('src/assets/react.svg') }}"> in twig. This requires those lines in `config/packages/framework.yaml`
+```
+framework:
+    assets:
+        version_strategy: 'Pentatrion\ViteBundle\Asset\ViteAssetVersionStrategy'
+```
+
+After you run `npm run build` twig will use assets generated via vite. This works due to mapping in `public/build/.vite/manifest.json` that is generated on `npm run build`.
+
+
+Q: How do I load twig assets in TS file?
+A: ...
 
 ### Setup
 ```bash
