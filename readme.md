@@ -37,6 +37,7 @@ framework:
     assets:
         version_strategy: 'Pentatrion\ViteBundle\Asset\ViteAssetVersionStrategy'
 ```
+If your project already uses assets strategy, see https://symfony-vite.pentatrion.com/guide/assets.html#multiple-asset-strategies
 
 After you run `npm run build` twig will use assets generated via vite. This works due to mapping in `public/build/.vite/manifest.json` that is generated on `npm run build`.
 
