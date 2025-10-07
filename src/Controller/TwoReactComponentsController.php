@@ -6,9 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class AdminController extends AbstractController {
-    #[Route('/admin', name: 'app_admin')]
+final class TwoReactComponentsController extends AbstractController {
+    #[Route('/two-react-components', name: 'app_two_react_components')]
     public function index(): Response {
-        return $this->render('admin/index.html.twig');
+        return $this->render('twoReactComponents/index.html.twig');
     }
 }

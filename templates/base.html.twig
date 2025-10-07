@@ -11,5 +11,7 @@
 	</head>
 	<body>
 		{% block body %}{% endblock %}
+		<div id="menu-root"></div>
+		{{ vite_entry_script_tags('menu', { dependency: 'react' }) }}
 	</body>
 </html>

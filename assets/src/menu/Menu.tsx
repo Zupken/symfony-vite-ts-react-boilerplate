@@ -4,9 +4,9 @@ const Menu: React.FC = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   const menuItems = [
-    { id: 'home', label: 'Home', link: '/' },
-    { id: 'about', label: 'About', link: '/about' },
-    { id: 'contact', label: 'Contact', link: '/contact' },
+    { id: 'two-react-components', label: 'Two React Components', link: '/two-react-components' },
+    { id: 'welcome', label: 'Welcome', link: '/welcome' },
+    { id: 'assets-poc', label: 'Assets POC', link: '/assets-poc' }
   ];
 
   const handleItemClick = (id: string) => {

@@ -50,7 +50,7 @@ A: ...
 ### React
 Q: Can I load more than one entrypoint (react component) in Twig?
 
-A: Yes you can, but they need to have different root. Example in endpoint /admin
+A: Yes you can, but they need to have different root. Example in endpoint /two-react-components
 
 ```
 <div id="menu-root"></div>
