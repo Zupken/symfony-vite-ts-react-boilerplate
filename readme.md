@@ -30,7 +30,8 @@ These functions rely on the `entrypoints.json` file, which is automatically gene
 Endpoint for examples of using assets: `assets-poc`
 
 Q: How do I load TS assets in twig file?
-A: use  <img src="{{ asset('src/assets/react.svg') }}"> in twig. This requires those lines in `config/packages/framework.yaml`
+
+A: use  `src="{{ asset('src/assets/react.svg') }}"` in twig. This requires those lines in `config/packages/framework.yaml`
 ```
 framework:
     assets:
@@ -41,7 +42,21 @@ After you run `npm run build` twig will use assets generated via vite. This work
 
 
 Q: How do I load twig assets in TS file?
+
 A: ...
+
+
+### React
+Q: Can I load more than one entrypoint (react component) in Twig?
+
+A: Yes you can, but they need to have different root. Example in endpoint /admin
+
+```
+<div id="menu-root"></div>
+{{ vite_entry_script_tags('menu', { dependency: 'react' }) }}
+<div id="root"></div>
+{{ vite_entry_script_tags('admin', { dependency: 'react' }) }}
+```
 
 ### Setup
 ```bash
