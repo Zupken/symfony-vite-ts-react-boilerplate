@@ -17,6 +17,7 @@ export default defineConfig({
             input: {
                 admin: path.resolve(__dirname, "assets/src/admin/main.tsx"),
                 welcome: path.resolve(__dirname, "assets/src/welcome/main.tsx"),
+                menu: path.resolve(__dirname, "assets/src/menu/main.tsx"),
             },
         },
     },

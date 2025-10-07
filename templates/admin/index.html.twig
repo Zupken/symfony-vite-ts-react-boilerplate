@@ -7,6 +7,8 @@
 	<head>
 		{{ vite_entry_link_tags('admin') }}
 	</head>
+	<div id="menu-root"></div>
+	{{ vite_entry_script_tags('menu', { dependency: 'react' }) }}
 	<div id="root"></div>
 	{{ vite_entry_script_tags('admin', { dependency: 'react' }) }}
 {% endblock %}
