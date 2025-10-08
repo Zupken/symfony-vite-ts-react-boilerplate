@@ -9,6 +9,11 @@ export default defineConfig({
         symfonyPlugin(),
     ],
     root: "assets",
+    resolve: {
+        alias: {
+        '@public': path.resolve(__dirname, 'public')
+        }
+    },
     base: "/build/", // The base path for prod builds
     build: {
         outDir: "../public/build",

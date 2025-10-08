@@ -27,7 +27,7 @@ These functions rely on the `entrypoints.json` file, which is automatically gene
 
 ## Q&A
 ### Assets
-Endpoint for examples of using assets: `assets-poc`
+### Endpoint for examples of using assets: `assets-poc`
 
 Q: How do I load TS assets in twig file?
 
@@ -41,10 +41,20 @@ If your project already uses assets strategy, see https://symfony-vite.pentatrio
 
 After you run `npm run build` twig will use assets generated via vite. This works due to mapping in `public/build/.vite/manifest.json` that is generated on `npm run build`.
 
+Q: How do I load twig assets in TS file (assetMapper not used)?
 
-Q: How do I load twig assets in TS file?
+A: Add this to vite.config.js:
+```
+resolve: {
+        alias: {
+        '@public': path.resolve(__dirname, 'public')
+        }
+    },
+```
 
-A: ...
+Then in TS you can use `import logo from '@public/images/symfony.png'`
+
+NOTE: on `npm run build` vite will hash this image and then look for it in /public/build/assets!
 
 
 ### React
