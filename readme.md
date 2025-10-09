@@ -59,10 +59,10 @@ Then in TS you can use `import logo from '@public/images/symfony.png'`
 NOTE: on `npm run build` vite will hash this image and then look for it in /public/build/assets!
 
 Q: How do I load twig assets in TS file (assetMapper used in Symfony):
+
 A: Unsure. You could pass the path in html but that's lame. Best way IMO is to do the same above - specify public,
 import the file in TS, run build. Then vite will hash it. Note that you will have two different paths to the same file in
 symfony and TS!
-
 
 ### React
 Q: Can I load more than one entrypoint (react component) in Twig?
