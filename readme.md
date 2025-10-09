@@ -64,6 +64,10 @@ A: Unsure. You could pass the path in html but that's lame. Best way IMO is to d
 import the file in TS, run build. Then vite will hash it. Note that you will have two different paths to the same file in
 symfony and TS!
 
+I have theory that it should be possible if asset mapper use by default the ViteAssetVersionStrategy. By default vite needs to import files to cache bust them.
+If one would find a way to push vite to cache bust every file in given directory, this would be working.
+
+
 ### React
 Q: Can I load more than one entrypoint (react component) in Twig?
 
