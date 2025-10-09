@@ -6,16 +6,51 @@
 {% block body %}
 	<head>
 		{{ vite_entry_link_tags('assets_poc') }}
+		<style>
+			.asset-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 20px;
+			}
+
+			.asset-container img {
+				max-width: 100px;
+				margin: 10px 0;
+			}
+
+			.asset-container span {
+				font-size: 14px;
+				color: #333;
+				margin-bottom: 10px;
+			}
+
+			.assets-wrapper {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin: 20px;
+			}
+		</style>
 	</head>
-	<span>
-		TS asset loaded in Twig:
-		{# run npm run build and see that it uses filename with hash #}
-		{# this works due to mapping in public/build/.vite/manifest.json that is generated on npm run build #}
-	<img src="{{ asset('src/assets/react.svg') }}"> </span>
-	<span>
-		Twig asset loaded in Twig:
-		<img src="images/symfony.png">
-	</span>
+	<div class="assets-wrapper">
+		<div class="asset-container">
+			<span>TS asset loaded in Twig:</span>
+			<img src="{{ asset('src/assets/react.svg', 'vite') }}" alt="React Logo">
+			<span>src = "{{ asset('src/assets/react.svg', 'vite') }}"</span>
+			<span>Tip: run "npm run build" to see the hashed filename.</span>
+		</div>
+		<div class="asset-container">
+			<span>Twig asset loaded in Twig (no asset mapper):</span>
+			<img src="images/symfony.png" alt="Symfony Logo">
+			<span>src="images/symfony.png"</span>
+		</div>
+		<div class="asset-container">
+			<span>Twig asset loaded in Twig (asset mapper):</span>
+			<img src="{{ asset('images/symfony.png') }}" alt="Symfony Logo">
+			<span>src="{{ asset('images/symfony.png') }}"</span>
+		</div>
+	</div>
 	<div id="root"></div>
 	{{ vite_entry_script_tags('assets_poc', { dependency: 'react' }) }}
 {% endblock %}

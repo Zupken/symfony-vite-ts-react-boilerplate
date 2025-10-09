@@ -31,15 +31,17 @@ These functions rely on the `entrypoints.json` file, which is automatically gene
 
 Q: How do I load TS assets in twig file?
 
-A: use  `src="{{ asset('src/assets/react.svg') }}"` in twig. This requires those lines in `config/packages/framework.yaml`
+A: use  `src="{{ asset('src/assets/react.svg', 'vite') }}"` in twig. This requires those lines in `config/packages/framework.yaml`
 ```
-framework:
-    assets:
-        version_strategy: 'Pentatrion\ViteBundle\Asset\ViteAssetVersionStrategy'
+assets:
+    packages:
+        vite:
+            version_strategy: 'Pentatrion\ViteBundle\Asset\ViteAssetVersionStrategy'
 ```
-If your project already uses assets strategy, see https://symfony-vite.pentatrion.com/guide/assets.html#multiple-asset-strategies
-
 After you run `npm run build` twig will use assets generated via vite. This works due to mapping in `public/build/.vite/manifest.json` that is generated on `npm run build`.
+
+If you run `asset('src/assets/react.svg')` it will use the default symfony assets fingerprinting.
+
 
 Q: How do I load twig assets in TS file (assetMapper not used)?
 
@@ -55,6 +57,11 @@ resolve: {
 Then in TS you can use `import logo from '@public/images/symfony.png'`
 
 NOTE: on `npm run build` vite will hash this image and then look for it in /public/build/assets!
+
+Q: How do I load twig assets in TS file (assetMapper used in Symfony):
+A: Unsure. You could pass the path in html but that's lame. Best way IMO is to do the same above - specify public,
+import the file in TS, run build. Then vite will hash it. Note that you will have two different paths to the same file in
+symfony and TS!
 
 
 ### React
